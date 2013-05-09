@@ -33,14 +33,18 @@ ALLOWED_HOSTS = []
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'America/Chicago'
+#TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Asia/Hong_Kong'
+
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
+#LANGUAGE_CODE = 'zh-CN'
 
 LANGUAGES = [
-    ('en', 'English'),
+    ('zh','Chinese'),
+    ('en', 'English'),    
 ]
 
 SITE_ID = 1
@@ -168,13 +172,15 @@ INSTALLED_APPS = (
     'cms.plugins.file',
     'cms.plugins.flash',
     'cms.plugins.link',
-    #'cms.plugins.picture',
-    #'cms.plugins.snippet',
-    #'cms.plugins.teaser',
+    'cms.plugins.picture',
+    'cms.plugins.snippet',
+    'cms.plugins.teaser',
     'cms.plugins.text',
     #'cms.plugins.video',
     #'filer',
-    
+    'cms.plugins.googlemap',
+    'cmsplugin_news',
+    'polls',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -205,3 +211,16 @@ LOGGING = {
         },
     }
 }
+
+CMS_PERMISSION = True
+
+CMS_MEDIA_PATH = MEDIA_ROOT
+
+CMS_MEDIA_URL = MEDIA_URL + CMS_MEDIA_PATH
+
+CMS_APPLICATIONS_URLS = (
+    ('cmsplugin_news.urls', 'news'),
+)
+CMS_NAVIGATION_EXTENDERS = (
+    ('cmsplugin_news.navigation.get_nodes','News navigation'),
+)

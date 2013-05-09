@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% load cms_tags %}
-
+{% load cms_tags menu_tags %}
 {% block base_content %}
+  {% show_breadcrumb %}
   {% placeholder template_1_content %}
 {% endblock %}

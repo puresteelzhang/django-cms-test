@@ -5,7 +5,7 @@
 ##################################################################
 [project attributes]
 proj.directory-list = [{'dirloc': loc('.'),
-                        'excludes': (),
+                        'excludes': [u'myproject/myproject/polls'],
                         'filter': '*',
                         'include_hidden': False,
                         'recursive': True,
